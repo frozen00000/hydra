@@ -3,3 +3,10 @@ jdk:
   - openjdk14
 services:
   - docker
+before_deploy:
+  - docker build -t timurlevadny/hydra .
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
