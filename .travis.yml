@@ -6,7 +6,13 @@ services:
 before_deploy:
   - docker build -t timurlevadny/hydra .
 deploy:
-  provider: script
-  script: bash docker_push
-  on:
-    branch: master
+  - provider: script
+    script: bash docker_push
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: releases
+    api_key: "$GITHUB_OAUTH_TOKEN"
+    skip_cleanup: true
+    on:
+      tags: true
