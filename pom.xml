@@ -10,12 +10,13 @@
 	</parent>
 	<groupId>com.github.frozen00000</groupId>
 	<artifactId>hydra</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2-${revision}</version>
 	<name>hydra</name>
 	<description>Hydra project</description>
 
 	<properties>
 		<java.version>14</java.version>
+		<revision>SNAPSHOT</revision>
 	</properties>
 
 	<dependencies>
@@ -47,6 +48,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>build-info</id>
+						<goals>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
