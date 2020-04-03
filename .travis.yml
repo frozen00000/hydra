@@ -8,7 +8,8 @@ before_deploy:
   - export HYDRA_VERSION=$(mvn -Drevision=$TRAVIS_BUILD_NUMBER-RELEASE help:evaluate -Dexpression=project.version -q -DforceStdout)
   - git config --local user.name "frozen00000"
   - git config --local user.email "timur.levadny@gmail.com"
-#  - git tag $HYDRA_VERSION
+  - echo "HYDRA_VERSION=$HYDRA_VERSION"
+  - git tag $HYDRA_VERSION
   - docker build -t timurlevadny/hydra .
 deploy:
   - provider: script
