@@ -1,9 +1,14 @@
 language: java
 jdk:
   - openjdk14
+script: mvn -Drevision=$TRAVIS_BUILD_NUMBER-RELEASE test -B
 services:
   - docker
 before_deploy:
+  - export HYDRA_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+  - git config --local user.name "frozen00000"
+  - git config --local user.email "timur.levadny@gmail.com"
+  - git tag $HYDRA_VERSION
   - docker build -t timurlevadny/hydra .
 deploy:
   - provider: script
@@ -14,4 +19,4 @@ deploy:
     api_key: "$GITHUB_OAUTH_TOKEN"
     skip_cleanup: true
     on:
-      tags: true
+      branch: master

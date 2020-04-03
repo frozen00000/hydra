@@ -1,3 +1,5 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker push timurlevadny/hydra
+IMAGE=hydra
+docker tag $DOCKER_USERNAME/$IMAGE:latest $USERNAME/$IMAGE:$HYDRA_VERSION
+docker push $DOCKER_USERNAME/$IMAGE
