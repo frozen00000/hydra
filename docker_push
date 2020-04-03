@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+HYDRA_VERSION=$(mvn -Drevision=$TRAVIS_BUILD_NUMBER-RELEASE help:evaluate -Dexpression=project.version -q -DforceStdout)
 IMAGE=hydra
 docker tag $DOCKER_USERNAME/$IMAGE:latest $USERNAME/$IMAGE:$HYDRA_VERSION
 docker push $DOCKER_USERNAME/$IMAGE
