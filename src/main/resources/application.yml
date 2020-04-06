@@ -1,1 +1,10 @@
-
+spring:
+  boot:
+    admin:
+      client:
+        enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

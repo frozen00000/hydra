@@ -1,0 +1,6 @@
+spring:
+  boot:
+    admin:
+      client:
+        enabled: true
+        url: http://localhost:8082
