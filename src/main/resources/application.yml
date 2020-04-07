@@ -3,6 +3,8 @@ spring:
     admin:
       client:
         enabled: false
+  application:
+    name: hydra
 management:
   endpoints:
     web:
