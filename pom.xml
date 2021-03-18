@@ -15,8 +15,9 @@
 	<description>Hydra project</description>
 
 	<properties>
-		<java.version>16</java.version>
+		<java.version>15</java.version>
 		<revision>SNAPSHOT</revision>
+		<lombok.version>1.18.18</lombok.version>
 	</properties>
 
 	<dependencies>
@@ -32,6 +33,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
